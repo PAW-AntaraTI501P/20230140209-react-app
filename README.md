@@ -1,3 +1,6 @@
+# Praktikum 1 React
+> this project was created for TI501P Pengembangan Aplikasi Web
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +71,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## 👩‍💻 Contributor
+
+| <img src="https://avatars.githubusercontent.com/u/161204020?v=4" width="150px"> |
+|:--:|
+| [Lu'lu' Luthfiah](https://github.com/lulultfh) |
