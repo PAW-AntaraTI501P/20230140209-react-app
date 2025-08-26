@@ -1,21 +1,17 @@
-import logo from "./logo.svg";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/Home/HomePage";
+import TodoPage from "./pages/Todo/TodoPage";
 import "./App.css";
-import React, { useState, useEffect } from "react";
 
 function App() {
-  const [message, setMessage] = useState("");
-  useEffect(() => {
-    fetch("http://localhost:3001")
-      .then((response) => response.json())
-      .then((data) => setMessage(data.message))
-      .catch((error) => console.error("Error:", error));
-  }, []);
-
   return (
-    <div>
-      <h1>Selamat Datang di Aplikasi React</h1>
-      <p>Ini adalah komponen React sederhana.</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/todos" element={<TodoPage />} />
+      </Routes>
+    </Router>
   );
 }
 
