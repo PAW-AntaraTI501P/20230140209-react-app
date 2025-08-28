@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
 .App {
   text-align: center;
 }
@@ -5,6 +7,25 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+:root {
+  --background-start: #f3e2d4;
+  --background-end: #c5b0cd;
+  --font-color: #17313e;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Urbanist", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(
+    0deg,
+    var(--background-start) 29%,
+    var(--background-end) 100%
+  );
+  color: var(--font-color);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,4 +56,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.todo-page-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "Urbanist", sans-serif;
+}
+
+.todo-page-header {
+  text-align: center;
 }

@@ -36,14 +36,14 @@ const TodoForm = ({ onAddTodo }) => {
           value={newTask}
           onChange={handleInputChange}
           required
-          style={{ padding: "8px", borderRadius: "4px", border: "none" }}
+          style={{ padding: "8px", borderRadius: "4px", border: "none", backgroundColor: "#FFEAEA"}}
         />
         <button
           type="submit"
           style={{
             padding: "10px",
-            backgroundColor: "#61dafb",
-            color: "#282c34",
+            backgroundColor: "#9B177E",
+            color: "#ffffff",
             border: "none",
             borderRadius: "4px",
             cursor: "pointer",

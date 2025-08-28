@@ -1,6 +1,7 @@
 import  { useState, useEffect } from "react";
 import TodoForm from "../../components/TodoForm.js";
 import TodoList from "../../components/TodoList.js";
+import '../../App.css';
 
 const TodoPage = () => {
   const [todos, setTodos] = useState([]);
@@ -109,15 +110,8 @@ const TodoPage = () => {
   }
 
   return (
-    <div
-      style={{
-        padding: "20px",
-        maxWidth: "800px",
-        margin: "0 auto",
-        fontFamily: "sans-serif",
-      }}
-    >
-      <header style={{ textAlign: "center" }}>
+    <div className="todo-page-container">
+      <header className="todo-page-header">
         <h1>Aplikasi Todo List</h1>
         <TodoForm onAddTodo={handleAddTodo} />
         <h2>Daftar Tugas Anda</h2>

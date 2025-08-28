@@ -18,7 +18,7 @@ const TodoItem = ({ todo, onToggleCompleted, onDeleteTodo, onEditingTodo }) => {
         border: "1px solid white",
         padding: "10px",
         borderRadius: "8px",
-        backgroundColor: todo.completed ? "#2d3d3d" : "transparent",
+        backgroundColor: todo.completed ? "#FFEAD8" : "transparent",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -58,8 +58,8 @@ const TodoItem = ({ todo, onToggleCompleted, onDeleteTodo, onEditingTodo }) => {
                 style={{
                   padding: "5px 10px",
                   borderRadius: "4px",
-                  backgroundColor: "lightblue",
-                  color: "#282c34",
+                  backgroundColor: "#9B177E",
+                  color: "#ffffff",
                   border: "none",
                   cursor: "pointer",
                 }}
@@ -87,8 +87,8 @@ const TodoItem = ({ todo, onToggleCompleted, onDeleteTodo, onEditingTodo }) => {
                 style={{
                   padding: "5px 10px",
                   borderRadius: "4px",
-                  backgroundColor: todo.completed ? "salmon" : "lightgreen",
-                  color: "#282c34",
+                  backgroundColor: todo.completed ? "#17313E" : "#C5B0CD",
+                  color: "#ffffff",
                   border: "none",
                   cursor: "pointer",
                 }}
@@ -100,8 +100,8 @@ const TodoItem = ({ todo, onToggleCompleted, onDeleteTodo, onEditingTodo }) => {
                 style={{
                   padding: "5px 10px",
                   borderRadius: "4px",
-                  backgroundColor: "gold",
-                  color: "#282c34",
+                  backgroundColor: "#9B177E",
+                  color: "#ffffff",
                   border: "none",
                   cursor: "pointer",
                 }}
@@ -113,7 +113,7 @@ const TodoItem = ({ todo, onToggleCompleted, onDeleteTodo, onEditingTodo }) => {
                 style={{
                   padding: "5px 10px",
                   borderRadius: "4px",
-                  backgroundColor: "tomato",
+                  backgroundColor: "#E8988A",
                   color: "white",
                   border: "none",
                   cursor: "pointer",
