@@ -1,7 +1,6 @@
-import React from "react";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ todos, onToggleCompleted, onDeleteTodo }) => {
+const TodoList = ({ todos, onToggleCompleted, onEditingTodo, onDeleteTodo }) => {
   if (todos.length === 0) {
     return <p>Tidak ada tugas yang ditemukan. Silakan tambahkan satu.</p>;
   }
@@ -14,6 +13,7 @@ const TodoList = ({ todos, onToggleCompleted, onDeleteTodo }) => {
           todo={todo}
           onToggleCompleted={onToggleCompleted}
           onDeleteTodo={onDeleteTodo}
+          onEditingTodo={onEditingTodo}
         />
       ))}
     </ul>

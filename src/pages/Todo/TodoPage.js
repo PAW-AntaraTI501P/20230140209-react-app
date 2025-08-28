@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import TodoForm from "../../components/TodoForm.js";
 import TodoList from "../../components/TodoList.js";
 
@@ -75,6 +75,29 @@ const TodoPage = () => {
       .catch((err) => console.error("Error updating todo:", err));
   };
 
+  const handleUpdateTodo = async (id, newTask) => {
+    try {
+      const response = await fetch(`/api/todos/update-task/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ task: newTask }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Gagal update todo");
+      }
+
+      const updated = await response.json();
+
+      setTodos((prev) =>
+        prev.map((t) => (t.id === id ? { ...t, task: updated.task } : t))
+      );
+    } catch (err) {
+      console.error("Error updating todo:", err.message);
+    }
+  };
+
   if (loading) {
     return <div style={{ textAlign: "center" }}>Loading...</div>;
   }
@@ -101,6 +124,7 @@ const TodoPage = () => {
         <TodoList
           todos={todos}
           onToggleCompleted={handleToggleCompleted}
+          onEditingTodo={handleUpdateTodo}
           onDeleteTodo={handleDeleteTodo}
         />
       </header>
