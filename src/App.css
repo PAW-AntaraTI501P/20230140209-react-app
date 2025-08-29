@@ -68,3 +68,15 @@ body {
 .todo-page-header {
   text-align: center;
 }
+
+.search-input::placeholder {
+  font-family: "Urbanist", sans-serif;
+  color: #888;
+  font-weight: 500;
+}
+
+.form-input::placeholder {
+  font-family: "Urbanist", sans-serif;
+  color: #888;
+  font-weight: 500;
+}

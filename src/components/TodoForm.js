@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../App.css"
 
 const TodoForm = ({ onAddTodo }) => {
   const [newTask, setNewTask] = useState("");
@@ -32,6 +33,7 @@ const TodoForm = ({ onAddTodo }) => {
         <input
           type="text"
           name="task"
+          className="form-input"
           placeholder="Tambahkan tugas baru..."
           value={newTask}
           onChange={handleInputChange}
