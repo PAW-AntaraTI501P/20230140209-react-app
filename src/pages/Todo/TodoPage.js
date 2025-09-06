@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import TodoForm from "../../components/TodoForm.js";
 import TodoList from "../../components/TodoList.js";
 import SearchInput from "../../components/SearchInput.js";
@@ -6,11 +7,27 @@ import "../../App.css";
 //import { Link } from "react-router-dom";
 import authFetch from "../../utils/authFetch.js";
 
+const backButtonStyle = {
+  backgroundColor: "#9B177E",
+  color: "white",
+  border: "none",
+  padding: "6px 12px",
+  borderRadius: "6px",
+  cursor: "pointer",
+  display: "flex",
+  alignItems: "center",
+  gap: "6px",
+  fontSize: "14px",
+  fontWeight: "bold",
+  marginBottom: "1rem",
+};
+
 const TodoPage = () => {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
 
   const fetchTodos = useCallback((searchQuery) => {
     setLoading(true);
@@ -122,10 +139,20 @@ const TodoPage = () => {
       <div style={{ textAlign: "center", color: "red" }}>Error: {error}</div>
     );
   }
+  
 
   return (
     <div className="todo-page-container">
       <header className="todo-page-header">
+        <div style={{ display: "flex", justifyContent: "flex-start" }}>
+          <button
+            style={backButtonStyle}
+            type="button"
+            onClick={() => navigate("/home")}
+          >
+            ← Back
+          </button>
+        </div>
         <h1>Aplikasi Todo List</h1>
         <TodoForm onAddTodo={handleAddTodo} />
         <SearchInput searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
