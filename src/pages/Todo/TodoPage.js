@@ -3,6 +3,8 @@ import TodoForm from "../../components/TodoForm.js";
 import TodoList from "../../components/TodoList.js";
 import SearchInput from "../../components/SearchInput.js";
 import "../../App.css";
+//import { Link } from "react-router-dom";
+import authFetch from "../../utils/authFetch.js";
 
 const TodoPage = () => {
   const [todos, setTodos] = useState([]);
@@ -16,14 +18,16 @@ const TodoPage = () => {
       ? `/api/todos?search=${encodeURIComponent(searchQuery)}`
       : "/api/todos";
 
-    fetch(url)
+    authFetch(url)
       .then((response) => {
         if (!response.ok)
           throw new Error(`HTTP error! status: ${response.status}`);
         return response.json();
       })
       .then((data) => {
-        setTodos(data.todos);
+        console.log("Data dari backend:", data); // 👉 buat cek bentuk response
+        const todosArray = Array.isArray(data) ? data : data.todos;
+        setTodos(todosArray || []);
         setError(null);
       })
       .catch((err) => {
@@ -41,7 +45,7 @@ const TodoPage = () => {
   }, [searchTerm, fetchTodos]);
 
   const handleAddTodo = (task) => {
-    fetch("/api/todos", {
+    authFetch("/api/todos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +63,7 @@ const TodoPage = () => {
   };
 
   const handleDeleteTodo = (id) => {
-    fetch(`/api/todos/${id}`, {
+    authFetch(`/api/todos/${id}`, {
       method: "DELETE",
     })
       .then(() => {
@@ -69,7 +73,7 @@ const TodoPage = () => {
   };
 
   const handleToggleCompleted = (id, completed) => {
-    fetch(`/api/todos/${id}`, {
+    authFetch(`/api/todos/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +92,7 @@ const TodoPage = () => {
 
   const handleUpdateTodo = async (id, newTask) => {
     try {
-      const response = await fetch(`/api/todos/update-task/${id}`, {
+      const response = await authFetch(`/api/todos/update-task/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ task: newTask }),
@@ -109,9 +113,9 @@ const TodoPage = () => {
     }
   };
 
-  if (loading) {
-    return <div style={{ textAlign: "center" }}>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div style={{ textAlign: "center" }}>Loading...</div>;
+  // }
 
   if (error) {
     return (
